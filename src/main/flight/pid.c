@@ -432,6 +432,10 @@ void pidController(const pidProfile_t *pidProfile, const rollAndPitchTrims_t *an
             if (pidProfile->crash_recovery == PID_CRASH_RECOVERY_BEEP) {
                 BEEP_ON;
             }
+            if (pidProfile->crash_recovery == PID_CRASH_RECOVERY_DISARM && cmpTimeUs(currentTimeUs, crashDetectedAtUs) > crashTimeLimitUs) {
+                setArmingDisabled(ARMING_DISABLED_ARM_SWITCH);
+                disarm();
+            }
             if (axis == FD_YAW) {
                 // on yaw axis, prevent "yaw spin to the moon" after crash by constraining errorRate
 #if !(defined(USE_GYRO_SPI_MPU6000) || defined(USE_GYRO_SPI_ICM20649))
