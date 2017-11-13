@@ -61,7 +61,8 @@ typedef enum {
 typedef enum {
     PID_CRASH_RECOVERY_OFF = 0,
     PID_CRASH_RECOVERY_ON,
-    PID_CRASH_RECOVERY_BEEP
+    PID_CRASH_RECOVERY_BEEP,
+	PID_CRASH_RECOVERY_DISARM
 } pidCrashRecovery_e;
 
 typedef struct pid8_s {

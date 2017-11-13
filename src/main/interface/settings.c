@@ -112,7 +112,7 @@ static const char * const lookupTableOffOn[] = {
 };
 
 static const char * const lookupTableCrashRecovery[] = {
-    "OFF", "ON" ,"BEEP"
+    "OFF", "ON" ,"BEEP", "DISARM"
 };
 
 static const char * const lookupTableUnit[] = {
