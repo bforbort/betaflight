@@ -1263,6 +1263,7 @@ static bool mspProcessOutCommand(uint8_t cmdMSP, sbuf_t *dst)
         sbufWriteU8(dst, gyroConfig()->gyro_lowpass_type);
         sbufWriteU8(dst, gyroConfig()->gyro_lowpass2_type);
         sbufWriteU16(dst, currentPidProfile->dterm_lowpass2_hz);
+//      sbufWriteU16(dst, currentPidProfile->yaw_lowpass2_hz);
 
         break;
     case MSP_PID_ADVANCED:
@@ -1836,6 +1837,9 @@ static mspResult_e mspProcessInCommand(uint8_t cmdMSP, sbuf_t *src)
             gyroConfigMutable()->gyro_lowpass2_type = sbufReadU8(src);
             currentPidProfile->dterm_lowpass2_hz = sbufReadU16(src);
         }
+//      if (sbufBytesRemaining(src) >= 1) {
+//          currentPidProfile->yaw_lowpass2_hz = sbufReadU16(src);
+//      }
         // reinitialize the gyro filters with the new values
         validateAndFixGyroConfig();
         gyroInitFilters();
