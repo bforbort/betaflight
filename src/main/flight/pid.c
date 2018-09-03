@@ -216,6 +216,7 @@ static FAST_RAM_ZERO_INIT filterApplyFnPtr dtermLowpass2ApplyFn;
 static FAST_RAM_ZERO_INIT pt1Filter_t dtermLowpass2[XYZ_AXIS_COUNT];
 static FAST_RAM_ZERO_INIT filterApplyFnPtr ptermYawLowpassApplyFn;
 static FAST_RAM_ZERO_INIT pt1Filter_t ptermYawLowpass;
+static FAST_RAM_ZERO_INIT pt1Filter_t ptermYawLowpass2;
 #if defined(USE_ITERM_RELAX)
 static FAST_RAM_ZERO_INIT pt1Filter_t windupLpf[XYZ_AXIS_COUNT];
 static FAST_RAM_ZERO_INIT uint8_t itermRelax;
@@ -304,7 +305,7 @@ void pidInitFilters(const pidProfile_t *pidProfile)
         ptermYawLowpassApplyFn = nullFilterApply;
     } else {
         ptermYawLowpassApplyFn = (filterApplyFnPtr)pt1FilterApply;
-        pt1FilterInit(&ptermYawLowpass, pt1FilterGain(pidProfile->yaw_lowpass2_hz, dT));
+        pt1FilterInit(&ptermYawLowpass2, pt1FilterGain(pidProfile->yaw_lowpass2_hz, dT));
     }
 
     if (pidProfile->yaw_lowpass_hz == 0 || pidProfile->yaw_lowpass_hz > pidFrequencyNyquist) {
