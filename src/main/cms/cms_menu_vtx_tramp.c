@@ -73,7 +73,7 @@ static OSD_TAB_t trampCmsEntBand = { &trampCmsBand, VTX_TRAMP_BAND_COUNT, vtx58B
 
 static OSD_TAB_t trampCmsEntChan = { &trampCmsChan, VTX_TRAMP_CHANNEL_COUNT, vtx58ChannelNames };
 
-static OSD_UINT16_t trampCmsEntFreqRef = { &trampCmsFreqRef, 5600, 5900, 0 };
+static OSD_UINT16_t trampCmsEntFreqRef = { &trampCmsFreqRef, 5000, 5999, 0 };
 
 static uint8_t trampCmsPower = 1;
 

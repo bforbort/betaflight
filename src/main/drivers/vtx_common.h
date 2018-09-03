@@ -29,7 +29,7 @@
 
 #define VTX_SETTINGS_NO_BAND        0 // used for custom frequency selection mode
 #define VTX_SETTINGS_MIN_BAND       1
-#define VTX_SETTINGS_MAX_BAND       5
+#define VTX_SETTINGS_MAX_BAND       10
 #define VTX_SETTINGS_MIN_CHANNEL    1
 #define VTX_SETTINGS_MAX_CHANNEL    8
 
@@ -86,6 +86,11 @@ typedef enum {
 #define VTX_COMMON_BAND_E         3
 #define VTX_COMMON_BAND_FS        4
 #define VTX_COMMON_BAND_RACE      5
+#define VTX_COMMON_BAND_DIATONE   6
+#define VTX_COMMON_BAND_U         7
+#define VTX_COMMON_BAND_o         8
+#define VTX_COMMON_BAND_L         9
+#define VTX_COMMON_BAND_H         10
 
 // RTC6705 RF Power index "---", 25 or 200 mW
 #define VTX_6705_POWER_OFF     0

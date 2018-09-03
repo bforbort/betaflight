@@ -29,7 +29,7 @@
 
 #if defined(USE_VTX_COMMON)
 
-#define VTX_STRING_BAND_COUNT 5
+#define VTX_STRING_BAND_COUNT 10
 #define VTX_STRING_CHAN_COUNT 8
 
 const uint16_t vtx58frequencyTable[VTX_STRING_BAND_COUNT][VTX_STRING_CHAN_COUNT] =
@@ -39,6 +39,11 @@ const uint16_t vtx58frequencyTable[VTX_STRING_BAND_COUNT][VTX_STRING_CHAN_COUNT]
     { 5705, 5685, 5665, 5645, 5885, 5905, 5925, 5945 }, // Boscam E
     { 5740, 5760, 5780, 5800, 5820, 5840, 5860, 5880 }, // FatShark
     { 5658, 5695, 5732, 5769, 5806, 5843, 5880, 5917 }, // RaceBand
+    { 5362, 5399, 5436, 5473, 5510, 5547, 5584, 5621 }, // *Diatone Band
+    { 5325, 5348, 5366, 5384, 5402, 5420, 5438, 5456 }, // *U Band
+    { 5474, 5492, 5510, 5528, 5546, 5564, 5582, 5600 }, // *o Band
+    { 5333, 5373, 5413, 5453, 5493, 5533, 5573, 5613 }, // *L Band
+    { 5653, 5693, 5733, 5773, 5813, 5853, 5893, 5933 }, // *H Band
 };
 
 const char * const vtx58BandNames[] = {
@@ -48,9 +53,14 @@ const char * const vtx58BandNames[] = {
     "BOSCAM E",
     "FATSHARK",
     "RACEBAND",
+    "* D BAND",
+    "* U BAND",
+    "* O BAND",
+    "* L BAND",
+    "* H BAND",
 };
 
-const char vtx58BandLetter[] = "-ABEFR";
+const char vtx58BandLetter[] = "-ABEFRDUOLH";
 
 const char * const vtx58ChannelNames[] = {
     "-", "1", "2", "3", "4", "5", "6", "7", "8",
@@ -78,7 +88,7 @@ bool vtx58_Freq2Bandchan(uint16_t freq, uint8_t *pBand, uint8_t *pChannel)
 }
 
 //Converts band and channel values to a frequency (in MHz) value.
-// band:  Band value (1 to 5).
+// band:  Band value (1 to 10).
 // channel:  Channel value (1 to 8).
 // Returns frequency value (in MHz), or 0 if band/channel out of range.
 uint16_t vtx58_Bandchan2Freq(uint8_t band, uint8_t channel)
